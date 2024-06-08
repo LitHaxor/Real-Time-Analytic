@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+  main-app:
+    env_file:
+      - .env.dev
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./src:/app/src
+
+  worker:
+    env_file:
+      - .env.dev
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./src:/app/src
+
+  db:
+    env_file:
+      - .env.dev
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}

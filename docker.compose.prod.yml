@@ -1,0 +1,35 @@
+version: '3.6'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.prod.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - main-app
+
+  main-app:
+    env_file:
+      - .env.prod
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /app/data
+
+  worker:
+    env_file:
+      - .env.prod
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /app/data
+
+  db:
+    env_file:
+      - .env.prod
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}

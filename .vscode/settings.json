@@ -1,0 +1,21 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "BongoPayment",
+            "group": "Bongo",
+            "database": "BongoPayment3",
+            "username": "lithasan"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "quiz test",
+            "connectString": "postgresql://lithasan:@localhost:5432/quiz"
+        }
+    ]
+}
